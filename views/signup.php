@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Richards</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -45,10 +44,10 @@
 </style>
 
 <body class="main">
-    <div>
+<div>
         <?php
         include "navigationbar.php";
-        include("../includes/login.inc.php");
+        include("../includes/signup.inc.php");
         if (isset($_GET['error'])) {
             $error = $_GET['error'];
         } else {
@@ -62,10 +61,11 @@
             <div class="col-lg-4 col-md-4 col-sm-12 mt-5">
                 <form action="" method="post">
                     <div class="form">
-                        <h2>LOGIN</h2> <br><br>
+                        <h2>SIGNUP</h2> <br><br>
                         <input class="form-control" type="text" name="email" placeholder="Email"><br><br>
                         <input class="form-control" type="password" name="password" placeholder="Password"><br><br>
-                        <button class="button btn btn-block col-12" name="submit">Login</button>
+                        <input class="form-control" type="password" name="password" placeholder="Confirm Password"><br><br>
+                        <button class="button btn btn-block col-12" name="submit">Signup</button>
                     </div>
                 </form>
             </div>
@@ -83,7 +83,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src=."/js/bootstrap.bundle.js"></script>
-
 </body>
 
 </html>

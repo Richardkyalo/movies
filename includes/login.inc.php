@@ -1,10 +1,11 @@
 <?php 
 if(isset($_POST['submit'])){
-
-    include "../middleware/helperFuncti0ns.php";
+    $email=stripslashes(htmlspecialchars($_POST['email']));
+    $password=stripslashes(htmlspecialchars($_POST['password']));
+    
     include "../classes/connect.php";
-    include "../classes/login.database.php";
-    include "../classes/login.controler.php";
+    include "../controller/login.db.php";
+    include "../controller/login_controller.php";
 
     $login= new login_controller($email, $password);
     $login->Isloged();
