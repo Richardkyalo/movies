@@ -5,8 +5,8 @@ if(isset($_POST['submit'])){
     $confirm_password= stripslashes( htmlspecialchars($_POST['confirm_password']));
 
     include "../classes/connect.php";
+    include "../classes/signup/signup.db.php";
     include "../controller/signup.controller.php";
-    include "../conntroller/signup.db.php";
 
     $signup= new signup_controller($email, $password, $confirm_password);
     $signup->signupUser();

@@ -48,6 +48,7 @@
         <?php
         include "navigationbar.php";
         include("../includes/signup.inc.php");
+        $error="";
         if (isset($_GET['error'])) {
             $error = $_GET['error'];
         } else {
@@ -61,10 +62,19 @@
             <div class="col-lg-4 col-md-4 col-sm-12 mt-5">
                 <form action="" method="post">
                     <div class="form">
-                        <h2>SIGNUP</h2> <br><br>
-                        <input class="form-control" type="text" name="email" placeholder="Email"><br><br>
-                        <input class="form-control" type="password" name="password" placeholder="Password"><br><br>
-                        <input class="form-control" type="password" name="password" placeholder="Confirm Password"><br><br>
+                        <h2>SIGNUP</h2> <br>
+                        <div>
+                            <p style="color:#ff7200;">*<?=$error?></p>
+                        </div>
+                        <input class="form-control" type="text" name="email" placeholder="Email"><br>
+                        <div>
+                            <p style="color:#ff7200;">*<?=$error?></p>
+                        </div>
+                        <input class="form-control" type="password" name="password" placeholder="Password"><br>
+                        <div>
+                            <p style="color:#ff7200;">*<?=$error?></p>
+                        </div>
+                        <input class="form-control" type="password" name="confirm_password" placeholder="Confirm Password"><br><br>
                         <button class="button btn btn-block col-12" name="submit">Signup</button>
                     </div>
                 </form>

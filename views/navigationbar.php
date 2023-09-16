@@ -12,6 +12,7 @@
                 <li class="nav-item"><a class="nav-link" style="color: #ff7200;" href="#">UPCOMING MOVIES</a></li>
                 <li class="nav-item"><a class="nav-link" style="color: #ff7200;" href="#">ABOUT</a></li>
                 <li class="nav-item"><a class="nav-link" style="color: #ff7200;" href="#">SERVICES</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: #ff7200;" href="#">LOGIN</a></li>
                 <li class="nav-item"><a class="nav-link" style="color: #ff7200;" href="#">CONTACT</a></li>
                 <li class="nav-item"><a class="nav-link" style="color: #ff7200;" href="#">HELP</a></li>
                 <li>
@@ -23,5 +24,4 @@
             </ul>
         </div>
     </div>
-    <script src=."/js/bootstrap.bundle.js"></script>
 </nav>

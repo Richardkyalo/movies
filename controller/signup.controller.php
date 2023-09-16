@@ -31,7 +31,7 @@ class signup_controller extends signup{
     }
     private function confirmPassword(){
         $response="";
-        if(!$this->password== $this->confirm_password){
+        if(!$this->password==$this->confirm_password){
             $response=false;
         }else {
             $response=true;
@@ -58,19 +58,19 @@ class signup_controller extends signup{
     }
     public function signupUser(){
         if($this->emptyChecker()==false){
-            header("Location: ../views/signup.php error= all fields are required");
+            header("Location:./signup.php? error= all fields are required");
             exit();
         }if($this->passwordChecker()==false){
-            header("Location: ../views/signup.php error= invalid password");
+            header("Location:./signup.php? error= invalid password");
             exit();
         }if($this->confirmPassword()==false){
-            header("Location: ../view/signup.php error= Password mismatch");
+            header("Location:./signup.php? error= Password mismatch");
             exit();
         }if($this->emailFilter()==false){
-            header("Location: ../view/signup.php error= invalid email");
+            header("Location:./signup.php? error= invalid email");
             exit();
         }if($this->UserExists()==false){
-            header("Location: ../views/signup.php error=User already Exists");
+            header("Location:./signup.php? error=User already Exists");
         }
         $this->createUser($this->email, $this->password);
     }
