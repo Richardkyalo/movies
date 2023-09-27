@@ -60,18 +60,20 @@ class signup_controller extends signup{
         if($this->emptyChecker()==false){
             header("Location:./signup.php? error= all fields are required");
             exit();
-        }if($this->passwordChecker()==false){
+        }elseif($this->passwordChecker()==false){
             header("Location:./signup.php? error= invalid password");
             exit();
-        }if($this->confirmPassword()==false){
+        }elseif($this->confirmPassword()==false){
             header("Location:./signup.php? error= Password mismatch");
             exit();
-        }if($this->emailFilter()==false){
+        }elseif($this->emailFilter()==false){
             header("Location:./signup.php? error= invalid email");
             exit();
-        }if($this->UserExists()==false){
+        }elseif($this->UserExists()==false){
             header("Location:./signup.php? error=User already Exists");
-        }
+        }else{
         $this->createUser($this->email, $this->password);
+        }
+
     }
 }

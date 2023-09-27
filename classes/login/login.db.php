@@ -3,15 +3,16 @@ class login extends database
 {
     protected function loginUser($email)
     {
-        $stmt = $this->connect()->prepare("SELECT * FROM roles WHERE email=?");
+        $stmt = $this->connect()->prepare("SELECT * FROM users WHERE email=?");
         if (!$stmt->execute(array($email))) {
             $stmt = null;
             header("Location: ../views/login.php? error= check your cridentials");
             exit();
         }
         if ($stmt->rowcount() > 0) {
-            $role = $stmt->fetch(PDO::FETCH_ASSOC);
-            $roles = $role["role"];
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+            $roles = $data["role"];
+            $hashged_password= $data;
             if ($roles = "admin") {
                 $stmt = $this->connect()->prepare("SELECT * FROM admins WHERE email=?");
                 if (!$stmt->execute(array($email))) {
@@ -61,6 +62,8 @@ class login extends database
                     header("location:../views/adminRouter.php?page=super_adminDashboard");
                 }
             }
+        }else{
+            header("Location:../views/login.php? error= Login failed");
         }
     }
 }
