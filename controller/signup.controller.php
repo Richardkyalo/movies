@@ -31,7 +31,7 @@ class signup_controller extends signup{
     }
     private function confirmPassword(){
         $response="";
-        if(!$this->password==$this->confirm_password){
+        if($this->password!==$this->confirm_password){
             $response=false;
         }else {
             $response=true;
@@ -49,7 +49,7 @@ class signup_controller extends signup{
     }
     private function UserExists(){
         $response="";
-        if(!$this->checkUser($this->email)){
+        if($this->checkUser($this->email)){
             $response= false;
         }else{
             $response= true;
@@ -57,23 +57,23 @@ class signup_controller extends signup{
         return $response;
     }
     public function signupUser(){
+        
         if($this->emptyChecker()==false){
             header("Location:./signup.php? error= all fields are required");
             exit();
-        }elseif($this->passwordChecker()==false){
+        }if($this->passwordChecker()==false){
             header("Location:./signup.php? error= invalid password");
             exit();
-        }elseif($this->confirmPassword()==false){
+        }if($this->confirmPassword()==false){
             header("Location:./signup.php? error= Password mismatch");
             exit();
-        }elseif($this->emailFilter()==false){
+        }if($this->emailFilter()==false){
             header("Location:./signup.php? error= invalid email");
             exit();
-        }elseif($this->UserExists()==false){
-            header("Location:./signup.php? error=User already Exists");
-        }else{
-        $this->createUser($this->email, $this->password);
+        }if($this->UserExists()==false){
+            header("Location:./signup.php? error= User already Exists");
         }
-
+      $this->createUser($this->email, $this->password);
+        
     }
 }

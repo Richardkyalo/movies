@@ -1,23 +1,23 @@
 <?php 
 class signup extends database{
     protected function checkUser($email){
-        $stmt=$this->connect()->prepare("SELECT * FROM users WHERE email=?");
-
+        $stmt=$this->connect()->prepare("SELECT * FROM users WHERE email=?;");
+        $response="";
         if($stmt->execute(array($email))){
-            $stmt=null;
-            header("Location: ../views/signup.php");
-            exit();
-        }
-            $response="";
             if($stmt->rowCount()>0){
-                $response=false;
-            }else{
                 $response=true;
+            }else{
+                $response=false;
         }
+            $stmt =null;
+
+        }
+            
+
         return $response;
     }
     protected function createUser($email, $password){
-        $stmt=$this->connect()->prepare("INSERT INTO users(email,passwords, roles) values(?,?,?)");
+        $stmt=$this->connect()->prepare("INSERT INTO users(email,passwords, roles) values(?,?,?);");
         $hasshed_password= password_hash($password, PASSWORD_DEFAULT);
         $roles="customer";
         if($stmt->execute(array($email,$hasshed_password,$roles))){
@@ -25,6 +25,10 @@ class signup extends database{
             header("Location: ../views/login.php");
             exit();
         }
-        $stmt=null;
+        else{
+            $stmt=null;
+            header("Location:./signup.php? error=Server Error");
+
+        }
     }
 }
