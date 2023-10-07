@@ -3,29 +3,14 @@ class login_controller extends login
 {
     private $email;
     private $password;
-
+    private $path="../views/login.php";
     public function __construct($email, $password)
     {
-        $this->email = $email;
-        $this->password = $password;
+        $helper=new helperFunctions();
+        $this->email = $helper->emailFilter($email, $this->path);
+        $this->password = $helper->emptyInputs($password, $this->path);
     }
-    public function Isloged()
-    {
-        if ($this->emptyFields()==false) {
-            header("Location:./login.php? error= All fields are required");
-            exit();
-        }
-        $this->loginUser($this->email);
-    }
-
-    private function emptyFields()
-    {
-        $response = "";
-        if (empty($this->email || $this->password)) {
-            $response=false;
-        } else {
-            $response = true;
-        }
-        return $response;
+    public function Isloged(){
+        $this->loginUser($this->email,$this->password);
     }
 }

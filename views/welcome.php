@@ -18,7 +18,6 @@
 
     .card {
         position: relative;
-        padding: 1rem;
         box-shadow: -1px 15px 30px -12px rgb(32, 32, 32);
         border-radius: 0.9rem;
         background-color: #fff;
@@ -63,7 +62,7 @@
         </div>
     </div>
     <div class="row px-5">
-        <div class="col-lg-3 col-md-3 col-sm-12 card" >
+        <div class="col-lg-3 col-md-3 col-sm-12 card">
             <div class="row">
                 <div class="col-lg-8 col-md-8"></div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
@@ -95,15 +94,15 @@
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <button class="btn btn-block" style="background-color:springgreen; color:#fff;">Book Now</button>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6" >
-                    <?php 
-                    $rating=5;
-                    for($i=1; $i<=4;$i++){
-                        if($i<=$rating){?>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <?php
+                    $rating = 5;
+                    for ($i = 1; $i <= 4; $i++) {
+                        if ($i <= $rating) { ?>
                             <svg class="svg" id="i-star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color:springgreen">
-                            <path d="M16 2 L20 12 30 12 22 19 25 30 16 23 7 30 10 19 2 12 12 12 Z" />
-                        </svg>
-                       <?php }
+                                <path d="M16 2 L20 12 30 12 22 19 25 30 16 23 7 30 10 19 2 12 12 12 Z" />
+                            </svg>
+                    <?php }
                     }
                     ?>
 
@@ -119,8 +118,19 @@
     </div>
     <div class="row pt-3">
         <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="./images/2.jpg" alt="Card image cap">
+            <div class="card h-100" style="width: 18rem; ">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                        <h4>Play Trailer</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4" style="text-align: end;">
+                       <a href=""> <svg xmlns="http://www.w3.org/2000/svg" width="50" height="16" fill="currentColor" class="bi bi-play" viewBox="0 0 16 16">
+                            <path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
+                        </svg>
+                    </a>
+                    </div>
+                </div>
+                <img class="img-fluid rounded-start" src="./images/2.jpg" style="background-size:cover;" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Card 1</h5>
                     <p class="card-text">We give the feeling of Leisure anytime you wish </p>
@@ -129,8 +139,8 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="./images/2.jpg" alt="Card image cap">
+            <div class="card h-100" style="width: 18rem;">
+                <iframe src="https://www.youtube.com/embed/aS0v0gCRqac?si=FODwxF3pVpwHGejk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <div class="card-body">
                     <h5 class="card-title">Card 2</h5>
                     <p class="card-text">What is making you not to be entertained if not you?</p>
@@ -139,7 +149,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card h-100" style="width: 18rem;">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-8"></div>
                     <div class="col-lg-4 col-md-4 col-sm-4">

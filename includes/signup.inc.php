@@ -4,6 +4,7 @@ if(isset($_POST['submit'])){
     $password= stripslashes( htmlspecialchars($_POST['password']));
     $confirm_password= stripslashes( htmlspecialchars($_POST['confirm_password']));
 
+    include "../middlewares/hellperFunctions.php";
     include "../classes/connect.php";
     include "../classes/signup/signup.db.php";
     include "../controller/signup.controller.php";

@@ -51,7 +51,7 @@
     <div class="container-fluid align-content-center mt-4 px-5">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-12">
-                <div class="card shadow p-3 mb-5 bg-body ">
+                <div class="card shadow mb-5 bg-body ">
                     <img src="./images/2.jpg" style="height:10rem" class="shadow-lg card-img-top  rounded" alt="...">
                     <div class="card-body">
 

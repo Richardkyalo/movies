@@ -5,15 +5,14 @@ class signup extends database{
         $response="";
         if($stmt->execute(array($email))){
             if($stmt->rowCount()>0){
+                // $data = $stmt->fetch(PDO::FETCH_ASSOC);
+                // echo $data["email"];
                 $response=true;
             }else{
                 $response=false;
         }
             $stmt =null;
-
-        }
-            
-
+        }       
         return $response;
     }
     protected function createUser($email, $password){

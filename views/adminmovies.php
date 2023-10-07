@@ -26,12 +26,17 @@
 </style>
 
 <body class="main">
-    <div class="container-fluid">
+    <div>
         <div class="row">
             <div class="col-12">
                 <?php
                 include "adminnavbar.php"
                 ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12" style="text-align:end;">
+            <input type="submit" name="Submit" value="ADD MOVIE" class="btn shadow-sm text-dark" style="background-color: #ff7200;">
             </div>
         </div>
         <div class="row">

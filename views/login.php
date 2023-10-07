@@ -50,6 +50,7 @@
         <?php
         include "navigationbar.php";
         include("../includes/login.inc.php");
+        $error="";
         if (isset($_GET['error'])) {
             $error = $_GET['error'];
         } else {
@@ -64,6 +65,11 @@
                 <form action="" method="post">
                     <div class="form">
                         <h2>LOGIN</h2> <br><br>
+                        <div class="col-lg-12 col-md-12 col-sm-12" style="color:#ff7200;">
+                            <?php
+                            echo "*". $error;
+                            ?>
+                        </div><br>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>

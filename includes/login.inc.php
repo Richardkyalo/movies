@@ -3,6 +3,7 @@ if(isset($_POST['submit'])){
     $email=stripslashes(htmlspecialchars($_POST['email']));
     $password=stripslashes(htmlspecialchars($_POST['password']));
     
+    include "../middlewares/hellperFunctions.php";
     include "../classes/connect.php";
     include "../classes/login/login.db.php";
     include "../controller/login_controller.php";

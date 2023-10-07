@@ -3,11 +3,13 @@ class signup_controller extends signup{
     private $email;
     private $password ;
     private $confirm_password;
+    private $path="../views/signup.php";
 
     public function __construct($email, $password, $confirm_password){
-        $this->email=$email;
-        $this->password=$password;
-        $this->confirm_password=$confirm_password;
+        $helper=new helperFunctions();
+        $this->email = $helper->emailFilter($email, $this->path);
+        $this->password = $helper->emptyInputs($password, $this->path);
+        $this->confirm_password = $helper->emptyInputs($confirm_password, $this->path);
     }
 
     private function emptyChecker(){
@@ -38,15 +40,7 @@ class signup_controller extends signup{
         }
         return $response;
     }
-    private function emailFilter(){
-        $response="";
-        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
-            $response=false;
-        }else{
-            $response=true;
-        }
-        return $response;
-    }
+    
     private function UserExists(){
         $response="";
         if($this->checkUser($this->email)){
@@ -58,22 +52,18 @@ class signup_controller extends signup{
     }
     public function signupUser(){
         
-        if($this->emptyChecker()==false){
-            header("Location:./signup.php? error= all fields are required");
-            exit();
-        }if($this->passwordChecker()==false){
+       if($this->passwordChecker()==false){
             header("Location:./signup.php? error= invalid password");
             exit();
         }if($this->confirmPassword()==false){
             header("Location:./signup.php? error= Password mismatch");
             exit();
-        }if($this->emailFilter()==false){
-            header("Location:./signup.php? error= invalid email");
-            exit();
         }if($this->UserExists()==false){
             header("Location:./signup.php? error= User already Exists");
+        }else{
+            $this->createUser($this->email, $this->password);
         }
-      $this->createUser($this->email, $this->password);
+ 
         
     }
 }
