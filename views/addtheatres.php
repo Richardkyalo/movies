@@ -64,24 +64,42 @@
         <div class="col-lg-4 col-md-4"></div>
         <div class="col-lg-4 col-md-4">
             <div class="row">
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                     <div class="form">
                         <h3>ADD THEATER</h3><br>
+                        <div>
+                            <p style="color:#ff7200;">*<?= $error ?></p>
+                        </div>
                         <div class="input-group mb-3">
                             <input name="theatre_name" type="text" value="" class="input form-control" id="Theatre Name" placeholder="Theatre Name" aria-label="Username" aria-describedby="basic-addon1" />
                         </div><br>
+                        <div>
+                            <p style="color:#ff7200;">*<?= $error ?></p>
+                        </div>
                         <div class="input-group mb-3">
                             <input name="county" type="text" value="" class="input form-control" id="" placeholder="County" aria-label="county" aria-describedby="basic-addon1" />
                         </div><br>
+                        <div>
+                            <p style="color:#ff7200;">*<?= $error ?></p>
+                        </div>
                         <div class="input-group mb-3">
                             <input name="town" type="text" value="" class="input form-control" id="" placeholder="Town" aria-label="town" aria-describedby="basic-addon1" />
                         </div><br>
+                        <div>
+                            <p style="color:#ff7200;">*<?= $error ?></p>
+                        </div>
                         <div class="input-group mb-3">
                             <input name="street" type="text" value="" class="input form-control" id="" placeholder="Street" aria-label="street" aria-describedby="basic-addon1" />
                         </div><br>
+                        <div>
+                            <p style="color:#ff7200;">*<?= $error ?></p>
+                        </div>
                         <div class="input-group mb-3">
                             <input name="seats" type="number" value="" class="input form-control" id="" placeholder="Number of Seats" aria-label="seats" aria-describedby="basic-addon1" />
                         </div><br>
+                        <div>
+                            <p style="color:#ff7200;">*<?= $error ?></p>
+                        </div>
                         <div class="input-group mb-3">
                             <label for="image">Add theatre display </label>
                         </div>

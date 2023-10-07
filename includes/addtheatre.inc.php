@@ -9,7 +9,7 @@ if(isset($_POST["submit"])){
 
     include "../middlewares/hellperFunctions.php";
     include "../classes/connect.php";
-    include "../classes/admin/addtheatre.php";
+    include "../classes/admins/add_theatre.php";
     include "../controller/add_theatre_controller.php";
     
     $add_theatre= new add_theatre_controller($theatre_name, $county, $town, $street, $seats, $image);
