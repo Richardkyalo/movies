@@ -19,12 +19,13 @@ class Add_theatre extends database{
         $stmt=$this->connect()->prepare("INSERT INTO movies(theatre_name, county, town, street, seats, display) values(?,?,?,?,?,?);");
         if($stmt->execute(array($theatre_name,$county,$town,$street,$seats,$image))){
             $stmt=null;
-            header("Location: ../views/admintheatres.php");
-            exit();
+            // header("Location: ../views/admintheatres.php");
+            // exit();
+            return true;
         }
         else{
             $stmt=null;
-            header("Location:./addtheatres.php");
+            return false;
         }
 
     }

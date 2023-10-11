@@ -23,6 +23,25 @@ class helperFunctions{
         }
         return $response;
     }
+    public function image_size($input){
+        $response="";
+        if($input > 6000000){
+            $response=false;
+        }else{
+            $response=true;
+        }
+        return $response;
+    }
+    public function file_type($input){
+        $response="";
+        $extension=strtolower(pathinfo($input,PATHINFO_EXTENSION));
+        if($extension=="jpeg"||$extension=="jpg"||$extension=="png"){
+            $response=true;
+        }else{
+            $response=false;
+        }
+        return $response;
+    }
     public function filterData($input){
         $response="";
         $response= stripslashes(htmlspecialchars($input));

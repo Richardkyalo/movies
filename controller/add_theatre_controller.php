@@ -29,13 +29,50 @@ class add_theatre_controller extends add_theatre
         }
         return $response;
     }
-
+    private function filesize()
+    {
+        $response = "";
+        $helper = new helperFunctions();
+        if ($helper->image_size($this->image) == true) {
+            $response = true;
+        } else {
+            $response = false;
+        }
+        return $response;
+    }
+    private function filetype()
+    {
+        $response = "";
+        $helper = new helperFunctions();
+        if ($helper->file_type($this->image)) {
+            $response = true;
+        } else {
+            $response = false;
+        }
+        return $response;
+    }
     public function add_theatre()
     {
+        if ($this->filesize() == false) {
+            header("Location" . $this->path . "? error= Wrong file size");
+        }
+        if ($this->filetype() == false) {
+            header("Location:" . $this->path . "? error= Wrong file type");
+        }
         if ($this->theatreExists() == false) {
-            header("Location:./addtheatres.php? error= Theatre already Exists");
-        }else{
-            $this->addtheatre($this->theatre_name, $this->county, $this->town, $this->street, $this->seats, $this->image);
+            header("Location:" . $this->path . "? error= Theatre already Exists");
+        } else {
+            $image_extension = ".jpg";
+            $newFileName=bin2hex(random_bytes(5)) . $image_extension;
+            if (
+                $this->addtheatre($this->theatre_name, $this->county, $this->town, $this->street, $this->seats, $this->image) &&
+                move_uploaded_file($this->image, __DIR__ . "../views/images/" . $newFileName)
+            ) {
+                header("Location: ../views/admintheatres.php");
+                exit();
+            } else {
+                header("Location:./addtheatres.php");
+            }
         }
     }
 }
