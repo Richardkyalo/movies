@@ -7,7 +7,7 @@ class add_theatre_controller extends add_theatre
     private $street;
     private $seats;
     private $image;
-    private $path = "../views/addtheatres.php";
+    private $path = "./addtheatres.php";
 
     public function __construct($theatre_name, $county, $town, $street, $seats, $image)
     {

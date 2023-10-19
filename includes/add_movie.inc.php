@@ -11,14 +11,13 @@ if(isset($_POST['submit'])){
     $actor=stripslashes(htmlspecialchars($_POST['actor']) );
     $cover=$_FILES['image']['name'];
     $cover_size=$_FILES['image']['size'];
-    $cover_type=$_FILES['image']['type'];   
 
     include '../middlewares/hellperFunctions.php';
     include '../classes/connect.php';
     include '../classes/admins/add_movie.php';
     include '../controller/add_movie_controller.php';
 
-    $add_movie= new add_movie_controller();
+    $add_movie= new add_movie_controller($movie_name, $movie_description, $movie_url, $theatre_name, $hours, $minutes, $charge, $rating, $actor, $cover);
     $add_movie->add_movie();
     
 }
