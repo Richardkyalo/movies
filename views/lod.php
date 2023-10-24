@@ -1,78 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
-
-    <!-- font awesome  -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Fancy Classic Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css">
+    <style>
+        /* Custom styles here */
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #fff;
+        }
+        .carousel-item {
+            padding: 30px;
+        }
+        .card {
+            border: none;
+            background: #fff;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="col-sp col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6" style="width:290px;height: 500px; text-align: center;">
-    <div class="product-item">
-      <div class="product-image-action">
-        <div class="product-label">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Classic Page</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-          <span class="label new">New</span>
-          <span class="label soldout">
-            <script>
-              // Generate a random discount percentage between 5% to 40%
-              var randomDiscount = Math.floor(Math.random() * 8) * 5 + 5;
-              document.write("-" + randomDiscount + "%");
-            </script>
-          </span>
+    <div id="carouselExample" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="card-group">
+                    <div class="card">
+                        <img src="./images/2.jpg" class="card-img-top" alt="Image 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Image 1</h5>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./images/2.jpg" class="card-img-top" alt="Image 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Image 2</h5>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./images/2.jpg" class="card-img-top" alt="Image 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Image 3</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <!-- Add more cards for the second group of images -->
+                <!-- Example:
+                <div class="card-group">
+                    <div class="card">
+                        <!-- Card content for the second image group -->
+                    </div>
+                    <div class="card">
+                        <!-- Card content for the second image group -->
+                    </div>
+                    <div class="card">
+                        <!-- Card content for the second image group -->
+                    </div>
+                </div>
+                -->
+            </div>
         </div>
-        <div class="product-image">
-          <a href="">
-            <img class="img-fluid blur-up lazyload" data-src="./images/6.jpg" alt="image" title="image" style="width:260px;height:260px" />
-            <img class="img-fluid blur-up lazyload product-imghover" src="./images/6.jpg" data-src="" alt="image" title="image" />
-          </a>
-        </div>
-        <div class="product-action">
-          <ul>
-
-            <li class="actions-addcart" data-placement="top" title="add to cart">
-              <a href="" class="btn "><i class="icon ti-shopping-cart"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="product-details">
-        <h3 class="product-title"><a href="product-details.php"></a></h3>
-        <h4 class="product-vendor"></h4>
-        <div class="product-starrating">
-          <?php
-          // Assuming the product rating is stored as a numerical value in the database
-          $rating = 5;
-          for ($i = 1; $i <= 5; $i++) {
-            if ($i <= $rating) {
-              echo '<i class="spr-icon fa fa-star"></i>';
-            } else {
-              echo '<i class="spr-icon fa fa-star-o"></i>';
-            }
-          }
-          ?>
-        </div>
-        <div class="product-price">
-          <span class="compare-price">4</span>
-          <span class="sale-price">4</span>
-          <a href="">
-            <button class="btn btn-primary">View product</button>
-          </a>
-        </div>
-      </div>
     </div>
-  </div>
-</body>
 
+    <footer class="footer text-center">
+        <p>&copy; 2023 Classic Page</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

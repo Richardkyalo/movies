@@ -127,7 +127,7 @@
                                 <label for="comment">Movie Description</label>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
-                            <textarea id="comment" name="comment" rows="" cols="" placeholder="Enter movie description here"></textarea>
+                            <textarea id="comment" name="movie_description" rows="" cols="" placeholder="Enter movie description here"></textarea>
                             </div>
                         </div>
                         <div>

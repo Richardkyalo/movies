@@ -8,6 +8,7 @@ class add_theatre_controller extends add_theatre
     private $seats;
     private $image;
     private $path = "./addtheatres.php";
+    private $allowedExtensions = array('jpg', 'png', 'gif', 'jpeg');
 
     public function __construct($theatre_name, $county, $town, $street, $seats, $image)
     {
@@ -44,7 +45,7 @@ class add_theatre_controller extends add_theatre
     {
         $response = "";
         $helper = new helperFunctions();
-        if ($helper->file_type($this->image)) {
+        if ($helper->checkFileExtension($this->image, $this->allowedExtensions)==true) {
             $response = true;
         } else {
             $response = false;

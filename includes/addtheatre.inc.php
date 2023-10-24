@@ -6,8 +6,6 @@ if(isset($_POST["submit"])){
     $street=stripslashes(htmlspecialchars($_POST["street"]));
     $seats= stripslashes(htmlspecialchars($_POST["seats"]));
     $image=$_FILES['image']['name'];
-    $image_size=$_FILES['image']['size'];
-    $image_type = $_FILES['image']['type'];
 
     include "../middlewares/hellperFunctions.php";
     include "../classes/connect.php";
