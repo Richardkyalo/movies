@@ -46,19 +46,6 @@ class helperFunctions
     //     }
     //     return $response;
     // }
-    public function checkFileExtension($input, $allowedExtensions)
-    {
-        $parts = explode('.', $input);
-        $fileExtension = strtolower(end($parts));
-        $response = "";
-        if (in_array($fileExtension, $allowedExtensions)) {
-            $response = true;
-        } else {
-            $response = false;
-        }
-        echo $fileExtension;
-        return $response;
-    }
 
     // Example usage:
 

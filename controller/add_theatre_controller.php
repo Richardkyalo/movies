@@ -8,7 +8,7 @@ class add_theatre_controller extends add_theatre
     private $seats;
     private $image;
     private $path = "./addtheatres.php";
-    private $allowedExtensions = array('jpg', 'png', 'gif', 'jpeg');
+    private $allowedExtensions = ['jpeg', 'jpg', 'png'];
 
     public function __construct($theatre_name, $county, $town, $street, $seats, $image)
     {
@@ -41,14 +41,26 @@ class add_theatre_controller extends add_theatre
         }
         return $response;
     }
-    private function filetype()
+    public function checkimages()
     {
-        $response = "";
-        $helper = new helperFunctions();
-        if ($helper->checkFileExtension($this->image, $this->allowedExtensions)==true) {
-            $response = true;
+        $response="";
+        $maxImages = 4;
+        $uploadedImagesCount = count($_FILES['images']['name']);
+        if ($uploadedImagesCount==$maxImages) {
+            // for ($i = 0; $i < $uploadedImagesCount; $i++) {
+            //     $fileName = $_FILES['images']['name'][$i];
+            //     $tempFile = $_FILES['images']['tmp_name'][$i];
+            //     $targetFile = $uploadDirectory . $fileName;
+    
+            //     if (move_uploaded_file($tempFile, $targetFile)) {
+            //         echo "File '$fileName' was uploaded successfully.<br>";
+            //     } else {
+            //         echo "Error uploading file '$fileName'.<br>";
+            //     }
+            // }
+            $response=true;
         } else {
-            $response = false;
+            $response=false;
         }
         return $response;
     }
@@ -57,14 +69,14 @@ class add_theatre_controller extends add_theatre
         if ($this->filesize() == false) {
             header("Location" . $this->path . "? error= Wrong file size");
         }
-        if ($this->filetype() == false) {
-            header("Location:" . $this->path . "? error= Wrong file type");
+        if ($this->checkimages() == false) {
+            header("Location:" . $this->path . "? error= Upload 4 images");
         }
         if ($this->theatreExists() == false) {
             header("Location:" . $this->path . "? error= Theatre already Exists");
         } else {
             $image_extension = ".jpg";
-            $newFileName=bin2hex(random_bytes(5)) . $image_extension;
+            $newFileName = bin2hex(random_bytes(5)) . $image_extension;
             if (
                 $this->addtheatre($this->theatre_name, $this->county, $this->town, $this->street, $this->seats, $this->image) &&
                 move_uploaded_file($this->image, __DIR__ . "../views/images/" . $newFileName)
