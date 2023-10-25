@@ -8,6 +8,7 @@ class add_theatre_controller extends add_theatre
     private $seats;
     private $image;
     private $path = "./addtheatres.php";
+    public $uploadedFileNames = [];
     private $allowedExtensions = ['jpeg', 'jpg', 'png'];
 
     public function __construct($theatre_name, $county, $town, $street, $seats, $image)
@@ -41,7 +42,7 @@ class add_theatre_controller extends add_theatre
         }
         return $response;
     }
-    public function checkimages()
+    private function checkimages()
     {
         $response="";
         $maxImages = 4;
@@ -53,6 +54,28 @@ class add_theatre_controller extends add_theatre
         }
         return $response;
     }
+    private function getfiles(){
+        $uploadedFileNames = [];
+        for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
+            $tempFile = $_FILES['images']['tmp_name'][$i];
+            $image_extension = ".jpg";
+            $newFileName = bin2hex(random_bytes(5)) . $image_extension;
+            $targetFile = "../views/images/" . $newFileName;
+            $uploadedFileNames[] = $newFileName;
+            // if (move_uploaded_file($tempFile, $targetFile)) {
+            //     $response=true;
+            // } else {
+            //    $response=false;
+            // }
+        }
+        return $uploadedFileNames;
+    }
+    private function uploadfiles(){
+        $files=$this->getfiles();
+        foreach ($files as $file) {
+            return $file;
+        }
+    }
     public function add_theatre()
     {
         if ($this->filesize() == false) {
@@ -61,27 +84,12 @@ class add_theatre_controller extends add_theatre
         if ($this->checkimages() == false) {
             header("Location:" . $this->path . "? error= Upload 4 images");
         }
-        // if ($this->theatreExists() == false) {
-        //     header("Location:" . $this->path . "? error= Theatre already Exists");
-        // } else {
-
-            for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
-                $fileName = $_FILES['images']['name'][$i];
-                $tempFile = $_FILES['images']['tmp_name'][$i];
-                $targetFile = "../views/images/" . $fileName;
-    
-                if (move_uploaded_file($tempFile, $targetFile)) {
-                    echo "File '$fileName' was uploaded successfully.<br>";
-                } else {
-                    echo "Error uploading file '$fileName'.<br>";
-                }
-            }
-            echo $fileName;
-            $image_extension = ".jpg";
-            $newFileName = bin2hex(random_bytes(5)) . $image_extension;
+        if ($this->theatreExists() == false) {
+            header("Location:" . $this->path . "? error= Theatre already Exists");
+        } else {
             if (
                 $this->addtheatre($this->theatre_name, $this->county, $this->town, $this->street, $this->seats, $this->image) &&
-                move_uploaded_file($this->image, __DIR__ . "../views/images/" . $newFileName)
+                $this->uploadFiles()
             ) {
                 header("Location: ../views/admintheatres.php");
                 exit();
@@ -90,4 +98,4 @@ class add_theatre_controller extends add_theatre
             }
         }
     }
-// }
+}
